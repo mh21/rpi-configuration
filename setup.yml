@@ -18,3 +18,8 @@
         owner: root
         group: root
         mode: '0644'
+
+    - name: Install podman
+      ansible.builtin.package:
+        name: podman
+        state: present
