@@ -1,0 +1,8 @@
+all:
+  children:
+    rpi:
+      hosts:
+        raspberrypi-1b
+  vars:
+    ansible_user: pi
+    ansible_become: true

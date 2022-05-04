@@ -1,0 +1,20 @@
+---
+- hosts: rpi
+  tasks:
+    - name: Remove userconf-pi
+      ansible.builtin.package:
+        name: userconf-pi
+        state: absent
+
+    - name: Unattended updates
+      ansible.builtin.package:
+        name: unattended-upgrades
+        state: present
+
+    - name: Automatically install from update repos
+      ansible.builtin.template:
+        src: 51unattended-upgrades-local
+        dest: /etc/apt/apt.conf.d/51unattended-upgrades-local
+        owner: root
+        group: root
+        mode: '0644'
